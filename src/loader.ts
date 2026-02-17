@@ -11,11 +11,13 @@
 
   const WIDGET_BUNDLE_URL = loaderScript?.dataset.src ?? 'a11y-widget.js';
 
-  // Pass data-client-id from loader to the widget via window.a11yConfig
+  // Pass data-client-id and data-api-url from loader to the widget via window.a11yConfig
   const clientId = loaderScript?.dataset.clientId;
-  if (clientId) {
+  const apiUrl = loaderScript?.dataset.apiUrl;
+  if (clientId || apiUrl) {
     (window as any).a11yConfig = (window as any).a11yConfig || {};
-    (window as any).a11yConfig.clientId = clientId;
+    if (clientId) (window as any).a11yConfig.clientId = clientId;
+    if (apiUrl) (window as any).a11yConfig.configEndpoint = apiUrl;
   }
 
   const script = document.createElement('script');
