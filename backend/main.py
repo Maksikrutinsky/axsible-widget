@@ -34,9 +34,6 @@ from schemas import (
     WidgetConfigResponse,
 )
 
-# ── Create tables ──
-Base.metadata.create_all(bind=engine)
-
 # ── App ──
 app = FastAPI(
     title="Axsible Widget API",
@@ -44,6 +41,16 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
 )
+
+
+@app.on_event("startup")
+def on_startup():
+    """Create tables if they don't exist. Non-fatal — Supabase may already have them."""
+    try:
+        Base.metadata.create_all(bind=engine)
+    except Exception as e:
+        import logging
+        logging.warning(f"Could not run create_all (tables may already exist): {e}")
 
 # ── CORS — must allow any origin for widget embedding ──
 app.add_middleware(
