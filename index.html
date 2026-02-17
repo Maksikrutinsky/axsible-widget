@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessibility Widget – Demo</title>
+    <style>
+      /* Sample host site styles – prove the widget doesn't leak */
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+        padding: 40px 24px;
+      }
+      .container { max-width: 800px; margin: 0 auto; }
+      h1 { font-size: 2rem; margin-bottom: 16px; color: #1a1a2e; }
+      h2 { font-size: 1.4rem; margin: 24px 0 8px; color: #16213e; }
+      p { margin-bottom: 12px; }
+      .card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+      a { color: #1a73e8; }
+
+      /* Animations for testing the Animation Stopper module */
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.05); opacity: 0.8; }
+      }
+      @keyframes slide {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(20px); }
+        100% { transform: translateX(0); }
+      }
+      @keyframes colorShift {
+        0% { background: #e3f2fd; }
+        33% { background: #f3e5f5; }
+        66% { background: #e8f5e9; }
+        100% { background: #e3f2fd; }
+      }
+      .anim-pulse { animation: pulse 2s ease-in-out infinite; }
+      .anim-slide { animation: slide 3s ease-in-out infinite; }
+      .anim-color { animation: colorShift 4s ease-in-out infinite; }
+      .anim-box {
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 8px;
+        background: #e3f2fd;
+        color: #1a73e8;
+        font-weight: 600;
+        margin-left: 10px;
+      }
+      .hover-transition {
+        padding: 10px 18px;
+        background: #1a73e8;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: transform 0.3s, background 0.3s;
+      }
+      .hover-transition:hover {
+        transform: scale(1.1);
+        background: #1557b0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+    <div class="container">
+      <h1>דף דוגמה – Accessibility Widget</h1>
+
+      <div class="card">
+        <h2>מה זה?</h2>
+        <p>
+          זהו דף בדיקה להדגמת הווידג'ט לנגישות.
+          הווידג'ט נטען בתוך Shadow DOM ולא משפיע על העיצוב של האתר המארח.
+        </p>
+        <p>
+          לחצו על הכפתור הצף בפינה הימנית התחתונה כדי לפתוח את תפריט הנגישות.
+          נסו לשנות את גודל הטקסט ולראות כיצד הדף מגיב.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>תוכן לדוגמה</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris.
+        </p>
+        <p>
+          <a href="#">קישור לדוגמה</a> – שימו לב שסגנונות האתר לא מושפעים מהווידג'ט.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>בדיקת אנימציות</h2>
+        <p>האלמנטים הבאים מונפשים. הפעילו "עצירת אנימציות" כדי לעצור אותם:</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 12px;">
+          <span class="anim-box anim-pulse">פועם</span>
+          <span class="anim-box anim-slide">מחליק</span>
+          <span class="anim-box anim-color">צבעים</span>
+          <button class="hover-transition">Hover עם transition</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>בדיקת נגישות DOM</h2>
+        <p>אלמנטים עם בעיות נגישות (לבדיקת שיפור ARIA):</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 12px;">
+          <a href="#"></a>
+          <button style="width:32px;height:32px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;"></button>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='40'%3E%3Crect fill='%23ddd' width='60' height='40'/%3E%3C/svg%3E" style="border-radius:4px;">
+          <input type="text" placeholder="שדה ללא label" style="padding:6px 10px;border:1px solid #ccc;border-radius:4px;">
+        </div>
+        <p style="margin-top:8px;font-size:13px;color:#888;">קישור ריק, כפתור ללא טקסט, תמונה ללא alt, שדה ללא label — ה-ARIA Enhancer יתקן אותם.</p>
+      </div>
+
+      <div class="card">
+        <h2>בדיקת פוקוס ודלג לתוכן</h2>
+        <p>לחצו <kbd>Tab</kbd> כדי לנווט. עם "מדגיש פוקוס" פעיל תראו מסגרת זהובה. עם "דלג לתוכן" תראו קישור בראש הדף.</p>
+        <div style="display: flex; gap: 12px; margin-top: 12px;">
+          <button style="padding:8px 16px;border:1px solid #ccc;border-radius:6px;background:#fff;cursor:pointer;outline:none;">כפתור ללא outline</button>
+          <a href="#" style="padding:8px 16px;outline:none;">קישור ללא outline</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>רשימה לבדיקה</h2>
+        <ul style="padding-right: 20px;">
+          <li>שינוי גודל טקסט</li>
+          <li>שמירת העדפות ב-localStorage</li>
+          <li>גרירת הכפתור הצף</li>
+          <li>בידוד מלא מסגנונות האתר (Shadow DOM)</li>
+          <li>מדגיש פוקוס (גורם לאלמנטים עם outline:none להציג פוקוס)</li>
+          <li>דלג לתוכן (Tab ראשון מציג קישור לתוכן)</li>
+          <li>סרגל קריאה (פס אופקי עוקב אחרי העכבר)</li>
+          <li>שיפור ARIA (מוסיף labels חסרים אוטומטית)</li>
+        </ul>
+      </div>
+    </div>
+    </main>
+
+    <!-- Widget entry point -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
