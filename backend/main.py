@@ -3,11 +3,18 @@ Axsible (EWA) Accessibility Widget — SaaS Backend
 FastAPI + SQLAlchemy + PostgreSQL (Supabase)
 """
 
+import logging
+import traceback
 import uuid
 
 from fastapi import Depends, FastAPI, HTTPException, Request, status
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from sqlalchemy import text
 from sqlalchemy.orm import Session
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 from auth import (
     create_access_token,
@@ -49,8 +56,19 @@ def on_startup():
     try:
         Base.metadata.create_all(bind=engine)
     except Exception as e:
-        import logging
-        logging.warning(f"Could not run create_all (tables may already exist): {e}")
+        logger.warning(f"Could not run create_all (tables may already exist): {e}")
+
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    """Return detailed errors in JSON instead of plain 'Internal Server Error'."""
+    logger.error(f"Unhandled error on {request.method} {request.url.path}: {exc}")
+    logger.error(traceback.format_exc())
+    return JSONResponse(
+        status_code=500,
+        content={"detail": str(exc), "type": type(exc).__name__},
+    )
+
 
 # ── CORS — must allow any origin for widget embedding ──
 app.add_middleware(
@@ -70,6 +88,13 @@ app.add_middleware(
 @app.get("/")
 def root():
     return {"status": "ok", "service": "Axsible Widget API"}
+
+
+@app.get("/health/db")
+def health_db(db: Session = Depends(get_db)):
+    """Check database connectivity."""
+    db.execute(text("SELECT 1"))
+    return {"status": "ok", "database": "connected"}
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
