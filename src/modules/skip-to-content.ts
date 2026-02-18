@@ -71,6 +71,8 @@ export class SkipToContentModule implements AccessibilityModule {
       document.getElementById('content') ??
       document.querySelector('[role="main"]') as HTMLElement ??
       document.querySelector('article') as HTMLElement ??
+      // Fallback: first h1 or h2 on the page
+      document.querySelector('h1, h2') as HTMLElement ??
       null
     );
   }

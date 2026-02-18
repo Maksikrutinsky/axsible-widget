@@ -32,6 +32,7 @@ export class BigCursorModule implements AccessibilityModule {
   readonly icon = ICONS.bigCursor;
 
   private mode: CursorMode = 'none';
+  private enabled = false;
   private styleEl: HTMLStyleElement | null = null;
 
   init(): void {
@@ -39,21 +40,24 @@ export class BigCursorModule implements AccessibilityModule {
   }
 
   activate(): void {
+    this.enabled = true;
     if (this.mode !== 'none') {
       this.apply();
     }
   }
 
   deactivate(): void {
+    this.enabled = false;
     this.mode = 'none';
     this.clear();
   }
 
   getState(): ModuleState {
-    return { enabled: this.mode !== 'none', settings: { mode: this.mode } };
+    return { enabled: this.enabled, settings: { mode: this.mode } };
   }
 
   setState(state: ModuleState): void {
+    this.enabled = state.enabled;
     if (typeof state.settings.mode === 'string') {
       this.mode = state.settings.mode as CursorMode;
     }

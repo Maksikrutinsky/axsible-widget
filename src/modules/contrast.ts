@@ -64,6 +64,7 @@ export class ContrastModule implements AccessibilityModule {
   readonly icon = ICONS.contrast;
 
   private mode: ContrastMode = 'none';
+  private enabled = false;
   private styleEl: HTMLStyleElement | null = null;
 
   init(): void {
@@ -71,24 +72,27 @@ export class ContrastModule implements AccessibilityModule {
   }
 
   activate(): void {
+    this.enabled = true;
     if (this.mode !== 'none') {
       this.applyMode();
     }
   }
 
   deactivate(): void {
+    this.enabled = false;
     this.clearMode();
     this.mode = 'none';
   }
 
   getState(): ModuleState {
     return {
-      enabled: this.mode !== 'none',
+      enabled: this.enabled,
       settings: { mode: this.mode },
     };
   }
 
   setState(state: ModuleState): void {
+    this.enabled = state.enabled;
     if (typeof state.settings.mode === 'string') {
       this.mode = state.settings.mode as ContrastMode;
     }

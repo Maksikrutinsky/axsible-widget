@@ -11,28 +11,32 @@ export class TextResizer implements AccessibilityModule {
   readonly icon = ICONS.textResize;
 
   private currentSize = 100; // percentage of original
+  private enabled = false;
 
   init(): void {
     // nothing extra needed on first load
   }
 
   activate(): void {
+    this.enabled = true;
     this.applySize();
   }
 
   deactivate(): void {
+    this.enabled = false;
     this.currentSize = 100;
     this.applySize();
   }
 
   getState(): ModuleState {
     return {
-      enabled: this.currentSize !== 100,
+      enabled: this.enabled,
       settings: { size: this.currentSize },
     };
   }
 
   setState(state: ModuleState): void {
+    this.enabled = state.enabled;
     if (typeof state.settings.size === 'number') {
       this.currentSize = state.settings.size;
     }

@@ -19,8 +19,8 @@ export class TextAlignmentModule implements AccessibilityModule {
   }
 
   activate(): void {
+    this.enabled = true;
     if (this.alignment !== 'none') {
-      this.enabled = true;
       this.apply();
     }
   }
