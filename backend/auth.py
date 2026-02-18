@@ -1,10 +1,10 @@
 import os
 from datetime import datetime, timedelta, timezone
 
+import bcrypt
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
-from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 
 from database import get_db
@@ -14,21 +14,18 @@ SECRET_KEY = os.getenv("JWT_SECRET_KEY", "change-me-in-production-axsible-2024")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_HOURS = 24
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login")
 
 
-def _truncate(plain: str) -> str:
-    """bcrypt only uses the first 72 bytes; truncate to avoid errors with bcrypt>=4.1."""
-    return plain.encode("utf-8")[:72].decode("utf-8", errors="ignore")
-
-
 def hash_password(plain: str) -> str:
-    return pwd_context.hash(_truncate(plain))
+    pwd_bytes = plain.encode("utf-8")[:72]
+    salt = bcrypt.gensalt()
+    return bcrypt.hashpw(pwd_bytes, salt).decode("utf-8")
 
 
 def verify_password(plain: str, hashed: str) -> bool:
-    return pwd_context.verify(_truncate(plain), hashed)
+    pwd_bytes = plain.encode("utf-8")[:72]
+    return bcrypt.checkpw(pwd_bytes, hashed.encode("utf-8"))
 
 
 def create_access_token(user_id: int, is_admin: bool) -> str:
