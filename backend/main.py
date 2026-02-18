@@ -70,10 +70,15 @@ async def global_exception_handler(request: Request, exc: Exception):
     )
 
 
-# ── CORS — must allow any origin for widget embedding ──
+# ── CORS — allow widget embedding + dashboard ──
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://axsible-dashboard.onrender.com",
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "*",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
