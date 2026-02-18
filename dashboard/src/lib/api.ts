@@ -15,19 +15,20 @@ function getToken(): string | null {
   return localStorage.getItem(TOKEN_KEY);
 }
 
-async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
+async function request<T>(path: string, options: RequestInit & { skipAuthRedirect?: boolean } = {}): Promise<T> {
+  const { skipAuthRedirect, ...fetchOptions } = options;
   const token = getToken();
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
-    ...(options.headers as Record<string, string> || {}),
+    ...(fetchOptions.headers as Record<string, string> || {}),
   };
   if (token) {
     headers["Authorization"] = `Bearer ${token}`;
   }
 
-  const res = await fetch(`${API_BASE}${path}`, { ...options, headers });
+  const res = await fetch(`${API_BASE}${path}`, { ...fetchOptions, headers });
 
-  if (res.status === 401) {
+  if (res.status === 401 && !skipAuthRedirect) {
     localStorage.removeItem(TOKEN_KEY);
     window.location.href = "/login";
     throw new Error("Unauthorized");
@@ -47,6 +48,7 @@ export const auth = {
     request<TokenResponse>("/api/auth/login", {
       method: "POST",
       body: JSON.stringify(data),
+      skipAuthRedirect: true,
     }),
   me: () => request<User>("/api/auth/me"),
 };
