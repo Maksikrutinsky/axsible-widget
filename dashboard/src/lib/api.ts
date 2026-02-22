@@ -1,6 +1,7 @@
 import { API_BASE, TOKEN_KEY } from "./constants";
 import type {
   LoginRequest,
+  RegisterRequest,
   TokenResponse,
   User,
   Site,
@@ -46,6 +47,12 @@ async function request<T>(path: string, options: RequestInit & { skipAuthRedirec
 export const auth = {
   login: (data: LoginRequest) =>
     request<TokenResponse>("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify(data),
+      skipAuthRedirect: true,
+    }),
+  register: (data: RegisterRequest) =>
+    request<User>("/api/auth/register", {
       method: "POST",
       body: JSON.stringify(data),
       skipAuthRedirect: true,
