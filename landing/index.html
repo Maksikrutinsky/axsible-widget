@@ -176,6 +176,19 @@
       font-size: 0.75rem; color: var(--gray-400); font-weight: 600;
     }
 
+    /* CLIENTS */
+    .clients { background: var(--gray-50); padding: 52px 20px; }
+    .clients-title {
+      text-align: center; font-size: 1.1rem; font-weight: 700;
+      color: var(--gray-400); margin-bottom: 36px; letter-spacing: .2px;
+    }
+    .clients-grid {
+      display: flex; flex-wrap: wrap; gap: 20px;
+      justify-content: center; align-items: center;
+    }
+    .client-logo { opacity: 0.6; transition: opacity .2s; }
+    .client-logo:hover { opacity: 1; }
+
     /* HOW IT WORKS */
     .how { background: #fff; }
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
@@ -439,8 +452,7 @@
 <!-- PROBLEM -->
 <section class="problem" id="problem">
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag">הבעיה</span>
+    <div class="section-header center">
       <h2 class="section-title">כל בעל אתר בישראל חייב בנגישות —<br />או מסתכן בתביעה</h2>
       <p class="section-sub">חוק שוויון זכויות לאנשים עם מוגבלות מחייב כל אתר ישראלי לעמוד בתקן. האכיפה הולכת ומתחזקת, ותביעות ייצוגיות מוגשות מדי יום.</p>
     </div>
@@ -467,13 +479,32 @@
         <p>ארגוני נגישות מגישים תביעות ייצוגיות כנגד עסקים. אפילו עסק קטן יכול למצוא עצמו בצד הנכון של תביעה יקרה ומביכה.</p>
       </div>
     </div>
-    <div class="logos-row">
-      <div class="logo-box">חברה א׳</div>
-      <div class="logo-box">חברה ב׳</div>
-      <div class="logo-box">חברה ג׳</div>
-      <div class="logo-box">חברה ד׳</div>
-      <div class="logo-box">חברה ה׳</div>
-      <div class="logo-box">חברה ו׳</div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients">
+  <div class="container">
+    <h2 class="clients-title">חלק מהלקוחות שבחרו בנו</h2>
+    <div class="clients-grid">
+      <div class="client-logo">
+        <svg viewBox="0 0 120 40" width="120" height="40"><rect width="120" height="40" rx="6" fill="#F3F4F6"/><text x="60" y="26" text-anchor="middle" font-family="Heebo,sans-serif" font-size="13" font-weight="700" fill="#9CA3AF">חברה א׳</text></svg>
+      </div>
+      <div class="client-logo">
+        <svg viewBox="0 0 120 40" width="120" height="40"><rect width="120" height="40" rx="6" fill="#F3F4F6"/><text x="60" y="26" text-anchor="middle" font-family="Heebo,sans-serif" font-size="13" font-weight="700" fill="#9CA3AF">חברה ב׳</text></svg>
+      </div>
+      <div class="client-logo">
+        <svg viewBox="0 0 120 40" width="120" height="40"><rect width="120" height="40" rx="6" fill="#F3F4F6"/><text x="60" y="26" text-anchor="middle" font-family="Heebo,sans-serif" font-size="13" font-weight="700" fill="#9CA3AF">חברה ג׳</text></svg>
+      </div>
+      <div class="client-logo">
+        <svg viewBox="0 0 120 40" width="120" height="40"><rect width="120" height="40" rx="6" fill="#F3F4F6"/><text x="60" y="26" text-anchor="middle" font-family="Heebo,sans-serif" font-size="13" font-weight="700" fill="#9CA3AF">חברה ד׳</text></svg>
+      </div>
+      <div class="client-logo">
+        <svg viewBox="0 0 120 40" width="120" height="40"><rect width="120" height="40" rx="6" fill="#F3F4F6"/><text x="60" y="26" text-anchor="middle" font-family="Heebo,sans-serif" font-size="13" font-weight="700" fill="#9CA3AF">חברה ה׳</text></svg>
+      </div>
+      <div class="client-logo">
+        <svg viewBox="0 0 120 40" width="120" height="40"><rect width="120" height="40" rx="6" fill="#F3F4F6"/><text x="60" y="26" text-anchor="middle" font-family="Heebo,sans-serif" font-size="13" font-weight="700" fill="#9CA3AF">חברה ו׳</text></svg>
+      </div>
     </div>
   </div>
 </section>
