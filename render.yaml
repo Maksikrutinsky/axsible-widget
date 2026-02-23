@@ -18,3 +18,12 @@ services:
       - type: rewrite
         source: /*
         destination: /index.html
+
+  - type: static
+    name: axsible-landing
+    buildCommand: echo "no build needed"
+    staticPublishPath: landing
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
