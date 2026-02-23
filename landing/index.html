@@ -108,6 +108,16 @@
     .hero h1 span { color: var(--brand); }
     .hero p { font-size: 1.15rem; color: var(--gray-500); max-width: 600px; margin: 0 auto 36px; }
     .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+    .hero-sub { font-size: 1.1rem; color: var(--gray-600, #4B5563); max-width: 620px; margin: 0 auto 32px; line-height: 1.7; }
+    .hero-checks {
+      display: inline-flex; flex-direction: column; gap: 12px;
+      margin: 0 auto 36px; text-align: right;
+    }
+    .hero-check-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1rem; color: var(--gray-800); font-weight: 500; line-height: 1.4;
+    }
+    .hero-check-item svg { flex-shrink: 0; }
     .trust-badges { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
     .badge {
       display: flex; align-items: center; gap: 6px;
@@ -392,33 +402,29 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <p class="section-tag">תקן ישראלי 5568 | WCAG 2.1</p>
-    <h1>הגן על העסק שלך<br /><span>מתביעות נגישות</span></h1>
-    <p>ווידג'ט נגישות חכם שמתקין בשורה אחת ועומד בתקן ישראלי 5568 ו-WCAG 2.1. מאות עסקים כבר מוגנים — הצטרף אליהם.</p>
-    <div class="code-box">
-      <span class="kw">&lt;script</span> src=<span class="str">"https://axsible-api.onrender.com/static/a11y-widget.js"</span><span class="kw">&gt;&lt;/script&gt;</span>
+    <p class="section-tag">פתרון נגישות מוביל בשילוב בינה מלאכותית</p>
+    <h1>הגן על העסק שלך מפני תביעות —<br /><span>נהפוך את האתר שלך לנגיש עבור כולם!</span></h1>
+    <p class="hero-sub">ווידג'ט נגישות חכם שמתקין בשורה אחת ועומד בתקן ישראלי 5568 ו-WCAG 2.1.<br />כשמדובר בנגישות לעסק שלכם, אסור להתפשר.</p>
+    <div class="hero-checks">
+      <div class="hero-check-item">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#3B82F6" stroke="none"/><path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        אחריות משפטית לעמידה בתקן ומניעת תביעות
+      </div>
+      <div class="hero-check-item">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#3B82F6" stroke="none"/><path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        יעוץ וליווי ע"י מומחה הנגישות המובילים בישראל
+      </div>
+      <div class="hero-check-item">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#3B82F6" stroke="none"/><path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        בדיקת קוד ידנית בשילוב תוסף נגישות מותאם לתקן 5568
+      </div>
+      <div class="hero-check-item">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#3B82F6" stroke="none"/><path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        התמחות בפלטפורמות מובילות: וורדפרס, ווקס, שופיפיי ועוד
+      </div>
     </div>
     <div class="hero-btns">
-      <a href="https://axsible-dashboard.onrender.com/login" class="btn-primary">התחל חינם 14 יום</a>
-      <a href="#demo" class="btn-outline">צפה בהדגמה חיה</a>
-    </div>
-    <div class="trust-badges">
-      <div class="badge">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-        תקן ישראלי 5568
-      </div>
-      <div class="badge">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-        WCAG 2.1
-      </div>
-      <div class="badge">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-        התקנה תוך 2 דקות
-      </div>
-      <div class="badge">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-        ביטול בכל עת
-      </div>
+      <a href="https://axsible-dashboard.onrender.com/login" class="btn-primary">לבדיקת נגישות ללא עלות — לחץ כאן</a>
     </div>
   </div>
 </section>
