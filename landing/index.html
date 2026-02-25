@@ -385,18 +385,54 @@
 
     /* BOTTOM CTA */
     .bottom-cta {
-      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
-      padding: 80px 20px; text-align: center;
+      background: var(--gray-900);
+      padding: 100px 20px; text-align: center; position: relative; overflow: hidden;
     }
-    .bottom-cta h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 900; color: #fff; margin-bottom: 16px; }
-    .bottom-cta p { color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 36px; max-width: 500px; margin-left: auto; margin-right: auto; }
-    .btn-white {
-      display: inline-block; background: #fff; color: var(--brand);
-      padding: 16px 40px; border-radius: 12px; font-size: 1.05rem; font-weight: 900;
-      transition: all .2s;
+    .bottom-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(59,130,246,0.22) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .btn-white:hover { background: var(--gray-100); transform: translateY(-2px); }
-    .cta-note { color: rgba(255,255,255,0.65); font-size: 0.85rem; margin-top: 16px; }
+    .bottom-cta .container { position: relative; z-index: 1; }
+    .cta-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3);
+      color: #93C5FD; font-size: 0.78rem; font-weight: 700; letter-spacing: 1px;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+    .cta-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: #3B82F6; display: inline-block; }
+    .bottom-cta h2 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; color: #fff;
+      margin-bottom: 18px; line-height: 1.15; letter-spacing: -0.5px;
+    }
+    .bottom-cta h2 em { font-style: normal; color: #60A5FA; }
+    .bottom-cta > .container > p {
+      color: rgba(255,255,255,0.6); font-size: 1rem; margin-bottom: 44px;
+      max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7;
+    }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-cta-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--brand); color: #fff;
+      padding: 16px 36px; border-radius: 12px; font-size: 1rem; font-weight: 800;
+      transition: all .2s; letter-spacing: 0.2px;
+    }
+    .btn-cta-primary:hover { background: var(--brand-dark); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(59,130,246,0.35); }
+    .btn-cta-primary svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2.5; fill: none; flex-shrink: 0; }
+    .btn-cta-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: rgba(255,255,255,0.7);
+      padding: 16px 28px; border-radius: 12px; font-size: 0.95rem; font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.15); transition: all .2s;
+    }
+    .btn-cta-secondary:hover { border-color: rgba(255,255,255,0.35); color: #fff; }
+    .cta-trust {
+      margin-top: 36px; display: flex; align-items: center; justify-content: center;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .cta-trust-item { display: flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+    .cta-trust-item svg { width: 14px; height: 14px; stroke: #3B82F6; stroke-width: 2.5; fill: none; flex-shrink: 0; }
 
     /* FOOTER */
     footer {
@@ -835,10 +871,34 @@
 <!-- BOTTOM CTA -->
 <section class="bottom-cta" id="contact">
   <div class="container">
-    <h2>מוכן להגן על העסק שלך?</h2>
-    <p>הצטרף למאות עסקים שכבר מוגנים. התחל ניסיון חינם של 14 יום — ללא כרטיס אשראי.</p>
-    <a href="https://axsible-dashboard.onrender.com/login" class="btn-white">התחל עכשיו — חינם</a>
-    <p class="cta-note">ללא כרטיס אשראי · ביטול בכל עת · תמיכה בעברית</p>
+    <div class="cta-eyebrow"><span></span>הצעד הבא שלכם</div>
+    <h2>האתר שלכם חשוף.<br /><em>הגיע הזמן לשנות את זה.</em></h2>
+    <p>כל יום שעובר בלי נגישות הוא יום נוסף של סיכון. הצטרפו למאות עסקים שכבר מוגנים — ההתקנה לוקחת פחות מ-2 דקות.</p>
+    <div class="cta-actions">
+      <a href="https://axsible-dashboard.onrender.com/login" class="btn-cta-primary">
+        התחל 14 יום בחינם
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="contact.html" class="btn-cta-secondary">דברו איתנו קודם</a>
+    </div>
+    <div class="cta-trust">
+      <div class="cta-trust-item">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        ללא כרטיס אשראי
+      </div>
+      <div class="cta-trust-item">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        ביטול בכל עת
+      </div>
+      <div class="cta-trust-item">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        תמיכה בעברית
+      </div>
+      <div class="cta-trust-item">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        עומד בתקן 5568
+      </div>
+    </div>
   </div>
 </section>
 
