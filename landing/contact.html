@@ -139,14 +139,13 @@
     .success-msg.show { display: block; }
 
     /* FOOTER */
-    footer { background: var(--gray-900); color: #fff; padding: 40px 20px; text-align: center; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; }
-    .footer-logo { font-size: 1.4rem; font-weight: 900; color: var(--brand); margin-bottom: 8px; }
-    .footer-tagline { font-size: 0.85rem; color: var(--gray-400); margin-bottom: 20px; }
-    .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
-    .footer-links a { font-size: 0.85rem; color: var(--gray-400); transition: color .2s; }
+    footer { background: var(--gray-900); color: var(--gray-400); padding: 20px 20px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-logo { font-size: 1.1rem; font-weight: 900; color: #fff; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+    .footer-links a { font-size: 0.8rem; color: var(--gray-400); transition: color .2s; }
     .footer-links a:hover { color: #fff; }
-    .footer-copy { font-size: 0.8rem; color: var(--gray-500); }
+    .footer-copy { font-size: 0.75rem; color: var(--gray-500); }
 
     @media (max-width: 768px) {
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -287,15 +286,16 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">Axsible</div>
-    <p class="footer-tagline">ווידג'ט נגישות חכם לאתרי אינטרנט ישראליים</p>
+    <span class="footer-logo">Axsible</span>
     <div class="footer-links">
       <a href="about.html">אודותינו</a>
       <a href="pricing.html">מחירים</a>
       <a href="services.html">השירותים שלנו</a>
       <a href="contact.html">צור קשר</a>
+      <a href="#">הצהרת נגישות</a>
+      <a href="#">מדיניות פרטיות</a>
     </div>
-    <p class="footer-copy">© 2025 Axsible. כל הזכויות שמורות.</p>
+    <p class="footer-copy">© 2025 Axsible · נבנה על-ידי <a href="#" style="color:var(--gray-400);text-decoration:underline;">MTCORE פתרונות דיגיטליים</a></p>
   </div>
 </footer>
 
