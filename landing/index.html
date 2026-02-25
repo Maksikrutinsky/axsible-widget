@@ -65,6 +65,7 @@
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a { font-size: 0.9rem; color: var(--gray-700); font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: var(--brand); }
+    .nav-links a.nav-active { color: var(--brand); font-weight: 700; }
     .btn-nav {
       background: var(--brand); color: #fff; border: none; cursor: pointer;
       padding: 9px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 700;
@@ -440,11 +441,11 @@
   <div class="nav-inner">
     <div class="nav-logo">Axsible</div>
     <div class="nav-links">
-      <a href="#problem">למה נגישות?</a>
-      <a href="#how">התקנה</a>
-      <a href="#pricing">תמחור</a>
-      <a href="#faq">שאלות נפוצות</a>
-      <a href="#contact">צור קשר</a>
+      <a href="index.html" class="nav-active">דף הבית</a>
+      <a href="about.html">אודותינו</a>
+      <a href="pricing.html">מחירים</a>
+      <a href="services.html">השירותים שלנו</a>
+      <a href="contact.html">צור קשר</a>
       <button class="btn-nav" onclick="location.href='https://axsible-dashboard.onrender.com/login'">התחל עכשיו</button>
     </div>
     <button class="hamburger" id="hamburger" aria-label="תפריט">
@@ -452,11 +453,11 @@
     </button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#problem" onclick="closeMobile()">למה נגישות?</a>
-    <a href="#how" onclick="closeMobile()">התקנה</a>
-    <a href="#pricing" onclick="closeMobile()">תמחור</a>
-    <a href="#faq" onclick="closeMobile()">שאלות נפוצות</a>
-    <a href="#contact" onclick="closeMobile()">צור קשר</a>
+    <a href="index.html" onclick="closeMobile()">דף הבית</a>
+    <a href="about.html" onclick="closeMobile()">אודותינו</a>
+    <a href="pricing.html" onclick="closeMobile()">מחירים</a>
+    <a href="services.html" onclick="closeMobile()">השירותים שלנו</a>
+    <a href="contact.html" onclick="closeMobile()">צור קשר</a>
     <button class="btn-nav" onclick="location.href='https://axsible-dashboard.onrender.com/login'">התחל עכשיו</button>
   </div>
 </nav>
@@ -994,11 +995,10 @@
     <div class="footer-logo">Axsible</div>
     <p class="footer-tagline">ווידג'ט נגישות חכם לאתרי אינטרנט ישראליים</p>
     <div class="footer-links">
-      <a href="#">אודות</a>
-      <a href="#">מדיניות פרטיות</a>
-      <a href="#">תנאי שימוש</a>
-      <a href="#">הצהרת נגישות</a>
-      <a href="mailto:hello@axsible.com">צור קשר</a>
+      <a href="about.html">אודותינו</a>
+      <a href="pricing.html">מחירים</a>
+      <a href="services.html">השירותים שלנו</a>
+      <a href="contact.html">צור קשר</a>
     </div>
     <p class="footer-copy">© 2025 Axsible. כל הזכויות שמורות.</p>
   </div>
