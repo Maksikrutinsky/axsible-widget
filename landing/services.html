@@ -99,6 +99,28 @@
     .service-features li { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--gray-700); }
     .check-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand); flex-shrink: 0; }
 
+    /* FEATURES */
+    .features-section { background: var(--gray-50); }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .feat-card {
+      display: flex; align-items: center; gap: 16px;
+      background: #fff; border-radius: 14px; padding: 20px 20px;
+      border: 1px solid var(--gray-200);
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .feat-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); border-color: var(--brand); }
+    .feat-icon-svg {
+      width: 44px; height: 44px; flex-shrink: 0; border-radius: 10px;
+      background: var(--brand-light); display: flex; align-items: center; justify-content: center;
+    }
+    .feat-icon-svg svg { width: 22px; height: 22px; stroke: var(--brand); stroke-width: 1.8; fill: none; }
+    .feat-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--gray-900); margin-bottom: 2px; }
+    .feat-card p { font-size: 0.8rem; color: var(--gray-500); line-height: 1.5; }
+    @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .features-grid { grid-template-columns: 1fr; } }
+
     /* PROCESS */
     .process { background: var(--gray-50); }
     .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; max-width: 900px; margin: 0 auto; position: relative; }
@@ -246,6 +268,73 @@
         </ul>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 48px;">
+      <p class="section-label">תכונות הווידג'ט</p>
+      <h2>25+ תכונות נגישות במוצר אחד</h2>
+      <p style="color:var(--gray-500);font-size:0.95rem;margin-top:8px;">כל הכלים שמשתמש עם מוגבלות צריך — בלחיצה אחת.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon-svg">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h6"/><path d="M18 14l2 2 4-4" stroke-width="1.8"/></svg>
+        </div>
+        <div><h3>הגדלת טקסט</h3><p>הגדלה עד 200% מותאמת אישית.</p></div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-svg">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9h.01M15 9h.01M8 13s1.5 2 4 2 4-2 4-2"/></svg>
+        </div>
+        <div><h3>ניגודיות גבוהה</h3><p>מצב ניגודיות ללקויות ראייה.</p></div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-svg">
+          <svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div><h3>עיוורון צבעים</h3><p>פילטרים לסוגי עיוורון שונים.</p></div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-svg">
+          <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+        </div>
+        <div><h3>סמן גדול</h3><p>הגדלת הסמן לנראות מרבית.</p></div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-svg">
+          <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 1 3 3v6a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10a7 7 0 0 1-14 0M12 19v3M9 22h6"/></svg>
+        </div>
+        <div><h3>קורא מסך</h3><p>תמיכה מלאה ב-NVDA, JAWS, VoiceOver.</p></div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-svg">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
+        </div>
+        <div><h3>ניווט מקלדת</h3><p>ניווט מלא ללא עכבר.</p></div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-svg">
+          <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/></svg>
+        </div>
+        <div><h3>שיפור ARIA</h3><p>הוספה אוטומטית של תגיות ARIA.</p></div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-svg">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h10"/></svg>
+        </div>
+        <div><h3>מדריך קריאה</h3><p>קו מיקוד לגולשים עם דיסלקציה.</p></div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-svg">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div><h3>דילוג לתוכן</h3><p>ניווט מהיר למשתמשי מקלדת.</p></div>
+      </div>
     </div>
   </div>
 </section>
