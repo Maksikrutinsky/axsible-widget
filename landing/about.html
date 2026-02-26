@@ -161,16 +161,47 @@
 
     @media (max-width: 640px) { .founders-grid { grid-template-columns: 1fr; } }
 
-    /* CTA STRIP */
-    .cta-strip { background: var(--brand); padding: 60px 0; text-align: center; }
-    .cta-strip h2 { color: #fff; margin-bottom: 12px; }
-    .cta-strip p { color: rgba(255,255,255,0.8); margin-bottom: 32px; font-size: 1rem; }
-    .btn-white {
-      display: inline-block; background: #fff; color: var(--brand);
-      padding: 14px 36px; border-radius: 10px; font-weight: 700; font-size: 1rem;
-      transition: opacity .2s;
+    /* CTA BANNER */
+    .cta-strip { padding: 32px 20px; background: var(--gray-50); }
+    .cta-banner-wrap {
+      max-width: 1100px; margin: 0 auto;
+      background: linear-gradient(120deg, #4338CA 0%, #3B82F6 55%, #6D28D9 100%);
+      border-radius: 20px; padding: 52px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; position: relative; overflow: hidden;
     }
-    .btn-white:hover { opacity: 0.9; }
+    .cta-banner-wrap::before {
+      content: ''; position: absolute; top: -80px; left: -80px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: rgba(109,40,217,0.4); pointer-events: none;
+    }
+    .cta-banner-wrap::after {
+      content: ''; position: absolute; bottom: -60px; right: 10%;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: rgba(59,130,246,0.3); pointer-events: none;
+    }
+    .cta-banner-text { position: relative; z-index: 1; }
+    .cta-banner-text h2 { color: #fff; font-size: clamp(1.4rem, 2.5vw, 2rem); margin-bottom: 8px; }
+    .cta-banner-text p { color: rgba(255,255,255,0.8); font-size: 1rem; margin: 0; }
+    .cta-banner-action { position: relative; z-index: 1; flex-shrink: 0; }
+    .btn-cta-pill {
+      display: inline-flex; align-items: center;
+      background: #fff; border-radius: 50px; overflow: hidden;
+      font-family: 'Heebo', sans-serif; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-cta-pill:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+    .btn-cta-pill-label { padding: 14px 24px 14px 28px; font-size: 1rem; font-weight: 700; color: #1E3A5F; }
+    .btn-cta-pill-icon {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--brand-dark); margin: 4px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .btn-cta-pill-icon svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    @media (max-width: 640px) {
+      .cta-banner-wrap { flex-direction: column; text-align: center; padding: 40px 28px; }
+    }
 
     /* FOOTER */
     footer { background: var(--gray-900); color: var(--gray-400); padding: 20px 20px; border-top: 1px solid rgba(255,255,255,0.07); }
@@ -349,10 +380,19 @@
 
 <!-- CTA -->
 <div class="cta-strip">
-  <div class="container">
-    <h2>רוצים לדעת עוד? אנחנו כאן</h2>
-    <p>השאירו פרטים ונחזור אליכם תוך שעה עם מידע מותאם לעסק שלכם</p>
-    <a href="contact.html" class="btn-white">צרו קשר עכשיו</a>
+  <div class="cta-banner-wrap">
+    <div class="cta-banner-text">
+      <h2>רוצים לדעת עוד?<br /><span style="opacity:.9;">אנחנו כאן בשבילכם</span></h2>
+      <p>השאירו פרטים ונחזור אליכם תוך שעה עם מידע מותאם לעסק שלכם</p>
+    </div>
+    <div class="cta-banner-action">
+      <a href="contact.html" class="btn-cta-pill">
+        <span class="btn-cta-pill-label">צרו קשר עכשיו</span>
+        <span class="btn-cta-pill-icon">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+    </div>
   </div>
 </div>
 
