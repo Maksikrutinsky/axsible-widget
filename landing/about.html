@@ -96,19 +96,24 @@
 
     /* VALUES */
     .values { background: var(--gray-50); }
-    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .value-card {
-      background: #fff; border-radius: 16px; padding: 32px 28px;
+      background: #fff; border-radius: 20px; padding: 36px 32px 32px;
       border: 1px solid var(--gray-200);
+      border-top: 3px solid var(--brand);
+      box-shadow: 0 2px 12px rgba(59,130,246,0.06);
+      transition: transform .2s, box-shadow .2s;
     }
+    .value-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(59,130,246,0.12); }
     .value-icon {
-      width: 52px; height: 52px; border-radius: 14px;
-      background: var(--brand-light); display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--brand-light); border: 1.5px solid #BFDBFE;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
     }
-    .value-icon svg { width: 26px; height: 26px; stroke: var(--brand); stroke-width: 1.8; fill: none; }
-    .value-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px; }
-    .value-card p { font-size: 0.9rem; color: var(--gray-500); line-height: 1.7; }
+    .value-icon svg { width: 26px; height: 26px; stroke: var(--brand); stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .value-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--gray-900); margin-bottom: 12px; }
+    .value-card p { font-size: 0.88rem; color: var(--gray-500); line-height: 1.8; }
 
     /* TEAM */
     .team { background: #fff; }
@@ -236,21 +241,32 @@
     <div class="values-grid">
       <div class="value-card">
         <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 3l.5 1.5H17l-3.5 2.5 1.5 4L12 9l-3 2 1.5-4L7 4.5h4.5L12 3z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 20h14" stroke-linecap="round"/>
+          </svg>
         </div>
         <h3>אמינות ושקיפות</h3>
         <p>אנו לא מבטיחים דברים שאיננו יכולים לקיים. כל לקוח מקבל תמונה ברורה ומלאה של מה שהפתרון שלנו עושה — ומה הגבולות שלו.</p>
       </div>
       <div class="value-card">
         <div class="value-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke-linecap="round"/>
+            <path d="M12 7v5l3 3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
         <h3>פשטות קודמת</h3>
         <p>נגישות לא צריכה להיות מסובכת. הפתרון שלנו מתקין בשורה אחת, עובד אוטומטית, ולא דורש מומחיות טכנית כלשהי.</p>
       </div>
       <div class="value-card">
         <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="3" stroke-linecap="round"/>
+            <path d="M6 20v-1a6 6 0 0 1 12 0v1" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 9a3 3 0 0 0 0-6M19.5 20a4.5 4.5 0 0 0-3-4.24" stroke-linecap="round"/>
+          </svg>
         </div>
         <h3>אנשים במרכז</h3>
         <p>מאחורי כל "משתמש עם מוגבלות" יש אדם אמיתי. המוצר שלנו נבנה כדי לפתוח את האינטרנט עבורם — לא רק כדי לעמוד בדרישות חוקיות.</p>
