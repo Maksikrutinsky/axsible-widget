@@ -140,11 +140,24 @@
 
     /* GUARANTEE */
     .guarantee { background: var(--gray-50); padding: 72px 0; }
-    .guarantee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 860px; margin: 0 auto; }
-    .guarantee-card { text-align: center; padding: 32px 24px; }
-    .g-icon { font-size: 2.4rem; margin-bottom: 16px; }
-    .guarantee-card h3 { font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; }
-    .guarantee-card p { font-size: 0.88rem; color: var(--gray-500); line-height: 1.7; }
+    .guarantee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 960px; margin: 0 auto; }
+    .guarantee-card {
+      background: #fff; border-radius: 20px; padding: 36px 32px 32px;
+      border: 1px solid var(--gray-200);
+      border-top: 3px solid var(--brand);
+      box-shadow: 0 2px 12px rgba(59,130,246,0.06);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .guarantee-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(59,130,246,0.12); }
+    .g-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--brand-light); border: 1.5px solid #BFDBFE;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+    }
+    .g-icon svg { width: 26px; height: 26px; stroke: var(--brand); stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .guarantee-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--gray-900); margin-bottom: 10px; }
+    .guarantee-card p { font-size: 0.88rem; color: var(--gray-500); line-height: 1.8; }
 
     /* FOOTER */
     footer { background: var(--gray-900); color: var(--gray-400); padding: 20px 20px; border-top: 1px solid rgba(255,255,255,0.07); }
@@ -292,17 +305,31 @@
     </div>
     <div class="guarantee-grid">
       <div class="guarantee-card">
-        <div class="g-icon">🛡️</div>
+        <div class="g-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3l7 4v5c0 4.5-3 8.5-7 10C8 20.5 5 16.5 5 12V7l7-4z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
         <h3>14 יום ניסיון חינם</h3>
         <p>התחילו בחינם ללא כרטיס אשראי. אם לא מרוצים — לא משלמים כלום.</p>
       </div>
       <div class="guarantee-card">
-        <div class="g-icon">⚡</div>
+        <div class="g-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
         <h3>התקנה תוך 2 דקות</h3>
         <p>שורה אחת של קוד ואתם מוגנים. ללא מפתח, ללא התקנות מורכבות.</p>
       </div>
       <div class="guarantee-card">
-        <div class="g-icon">🔄</div>
+        <div class="g-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="9"/>
+          </svg>
+        </div>
         <h3>ביטול בכל עת</h3>
         <p>אין התחייבות לטווח ארוך. מבטלים מתי שרוצים, ללא קנסות.</p>
       </div>
